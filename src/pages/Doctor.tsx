@@ -10,7 +10,7 @@ import {
   Bell, 
   Search,
   FileText,
-  Pills,
+  Pill,
   PieChart,
   Share2,
   Languages,
@@ -75,7 +75,7 @@ const Doctor = () => {
             <span className="hidden sm:inline">Reports</span>
           </TabsTrigger>
           <TabsTrigger value="medications">
-            <Pills className="mr-2 h-4 w-4" />
+            <Pill className="mr-2 h-4 w-4" />
             <span className="hidden sm:inline">Medications</span>
           </TabsTrigger>
           <TabsTrigger value="analytics">
@@ -216,7 +216,7 @@ const Doctor = () => {
         <Card className="glass-card">
           <CardHeader>
             <CardTitle className="flex items-center">
-              <Pills className="mr-2 h-5 w-5 text-primary" />
+              <Pill className="mr-2 h-5 w-5 text-primary" />
               Medication Tracking
             </CardTitle>
             <CardDescription>
@@ -225,7 +225,7 @@ const Doctor = () => {
           </CardHeader>
           <CardContent>
             <div className="text-center py-12 text-muted-foreground">
-              <Pills className="mx-auto h-12 w-12 opacity-20 mb-3" />
+              <Pill className="mx-auto h-12 w-12 opacity-20 mb-3" />
               <p>Select a patient first to view and manage their medication</p>
               <p className="text-sm mt-2">This section allows tracking prescriptions, adherence, and effects</p>
             </div>
