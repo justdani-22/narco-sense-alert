@@ -14,11 +14,15 @@ import {
   MessageSquare,
   Clock,
   ClipboardList,
-  Brain, 
   Upload,
   Download,
   Edit
 } from 'lucide-react';
+import AttackHistory from './AttackHistory';
+import WearableSection from './WearableSection';
+import NotificationSettings from './NotificationSettings';
+import MedicationTracking from './MedicationTracking';
+import ExportSection from './ExportSection';
 
 // Dati di esempio per il paziente selezionato
 const mockPatients = {
@@ -54,13 +58,14 @@ interface PatientDetailsProps {
 
 const PatientDetails = ({ patientId }: PatientDetailsProps) => {
   const patient = mockPatients[patientId as keyof typeof mockPatients];
+  const [detailTab, setDetailTab] = useState("overview");
   
   if (!patient) {
     return <div>Patient not found</div>;
   }
   
   return (
-    <Tabs defaultValue="overview" className="w-full">
+    <Tabs value={detailTab} onValueChange={setDetailTab} className="w-full">
       <TabsList className="mb-6">
         <TabsTrigger value="overview">
           <Activity className="mr-2 h-4 w-4" />
@@ -176,7 +181,7 @@ const PatientDetails = ({ patientId }: PatientDetailsProps) => {
                 {patient.attacks.map((attack, idx) => (
                   <div key={idx} className="p-3 border rounded-lg flex items-center">
                     <div className="h-10 w-10 rounded-full bg-primary/10 flex items-center justify-center mr-3">
-                      <Brain className="h-5 w-5 text-primary" />
+                      <Heart className="h-5 w-5 text-primary" />
                     </div>
                     <div className="flex-1">
                       <div className="flex justify-between">
@@ -202,7 +207,7 @@ const PatientDetails = ({ patientId }: PatientDetailsProps) => {
                 ))}
               </div>
               
-              <Button className="w-full mt-4" variant="outline">
+              <Button className="w-full mt-4" variant="outline" onClick={() => setDetailTab("history")}>
                 View Full History
               </Button>
             </CardContent>
@@ -235,21 +240,7 @@ const PatientDetails = ({ patientId }: PatientDetailsProps) => {
       </TabsContent>
       
       <TabsContent value="history" className="mt-0">
-        <Card>
-          <CardHeader>
-            <CardTitle>Attack History</CardTitle>
-            <CardDescription>
-              Complete log of narcolepsy episodes
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-center py-12 text-muted-foreground">
-              <Calendar className="mx-auto h-12 w-12 opacity-20 mb-3" />
-              <p>Detailed attack history will be displayed here</p>
-              <Button className="mt-4" variant="outline">Export History</Button>
-            </div>
-          </CardContent>
-        </Card>
+        <AttackHistory patientId={patientId} />
       </TabsContent>
       
       <TabsContent value="questionnaires" className="mt-0">
@@ -271,21 +262,7 @@ const PatientDetails = ({ patientId }: PatientDetailsProps) => {
       </TabsContent>
       
       <TabsContent value="reports" className="mt-0">
-        <Card>
-          <CardHeader>
-            <CardTitle>Medical Reports</CardTitle>
-            <CardDescription>
-              Generate and download medical reports
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <div className="text-center py-12 text-muted-foreground">
-              <FileText className="mx-auto h-12 w-12 opacity-20 mb-3" />
-              <p>Medical reports generation tools will be displayed here</p>
-              <Button className="mt-4" variant="outline">Generate New Report</Button>
-            </div>
-          </CardContent>
-        </Card>
+        <ExportSection />
       </TabsContent>
     </Tabs>
   );
