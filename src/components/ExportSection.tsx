@@ -1,6 +1,6 @@
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Database, FileText, Download, FileCsv, FilePdf } from 'lucide-react';
+import { Database, FileText, Download, FileIcon, File } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
@@ -33,7 +33,7 @@ const ExportSection = () => {
               <div className="flex items-center space-x-2 border rounded-lg p-4">
                 <RadioGroupItem value="pdf" id="pdf" />
                 <Label htmlFor="pdf" className="flex items-center cursor-pointer">
-                  <FilePdf className="h-5 w-5 mr-2 text-red-500" />
+                  <FileText className="h-5 w-5 mr-2 text-red-500" />
                   <div>
                     <p className="font-medium">PDF</p>
                     <p className="text-xs text-muted-foreground">Ideale per la stampa</p>
@@ -44,7 +44,7 @@ const ExportSection = () => {
               <div className="flex items-center space-x-2 border rounded-lg p-4">
                 <RadioGroupItem value="csv" id="csv" />
                 <Label htmlFor="csv" className="flex items-center cursor-pointer">
-                  <FileCsv className="h-5 w-5 mr-2 text-green-500" />
+                  <FileIcon className="h-5 w-5 mr-2 text-green-500" />
                   <div>
                     <p className="font-medium">CSV</p>
                     <p className="text-xs text-muted-foreground">Per analisi di dati</p>
