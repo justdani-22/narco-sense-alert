@@ -81,6 +81,19 @@ const Profile = () => {
         </p>
       </div>
       
+      <div className="mb-6">
+        <Button
+          variant="outline"
+          className="flex items-center"
+          asChild
+        >
+          <Link to="/personalization">
+            <Palette className="mr-2 h-4 w-4" />
+            Personalizza l'app
+          </Link>
+        </Button>
+      </div>
+      
       <form onSubmit={handleSubmit}>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {/* Personal Information */}
