@@ -9,6 +9,7 @@ import Index from "./pages/Index";
 import Questionnaire from "./pages/Questionnaire";
 import Consultation from "./pages/Consultation";
 import Profile from "./pages/Profile";
+import Doctor from "./pages/Doctor";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/questionnaire" element={<Questionnaire />} />
           <Route path="/consultation" element={<Consultation />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/doctor" element={<Doctor />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

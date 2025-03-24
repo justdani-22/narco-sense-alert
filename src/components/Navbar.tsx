@@ -7,7 +7,8 @@ import {
   Phone, 
   User, 
   MenuIcon, 
-  X 
+  X,
+  Stethoscope
 } from 'lucide-react';
 import { cn } from "@/lib/utils";
 
@@ -31,6 +32,11 @@ const navItems = [
     path: '/profile', 
     name: 'Profile', 
     icon: User 
+  },
+  { 
+    path: '/doctor', 
+    name: 'Doctor', 
+    icon: Stethoscope 
   }
 ];
 
